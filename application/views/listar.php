@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script acess allowed');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de Produtos</title>
+    <title>Lista de Personagem</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
         .margin-button15{
@@ -19,35 +19,31 @@ defined('BASEPATH') OR exit('No direct script acess allowed');
 <body>
     <div class="container">
         <div class="row">
-            <h1>Lista de Produtos</h1>
+            <h1>Lista de Personagem</h1>
 
-            <a href="index.php/produtos/add" class="btn btn-success margin-button15">Novo Produto</a>
+            <a href="index.php/starwars/add" class="btn btn-success margin-button15">Novo Personagem</a>
 
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Produto</th>
-                            <th class="text-center">Descrição</th>
-                            <th class="text-center">Quantidade</th>
-                            <th class="text-center colspan-2">Ações</th>
+                            <th class="text-center">Nome</th>
+                            <th class="text-center">Ações</th>
                         </tr>
                     </thead>
 
                   
                     <?php
                     $contador = 0;
-                    foreach($produtos as $produto){  
+                    foreach($starwars as $starwar){  
                         echo '<tr>';
-                            echo '<td class="text-center">'.$produto->id.'</td>';
-                            echo '<td class="text-center">'.$produto->nome.'</td>';
-                            echo '<td class="text-center">'.$produto->descricao.'</td>';
-                            echo '<td class="text-center">'.$produto->quantidade.'</td>';
+                            echo '<td class="text-left"><b>'.$starwar->name.'</b></td>';
                             echo '<td class="text-center">';
-                                echo '<a href="index.php/produtos/editar/'.$produto->id.'" title="Editar" class="btn 
+                                echo '<a href="index.php/starwars/editar/'.$starwar->id.'" title="Editar" class="btn 
                                 btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
-                                echo '<a href="index.php/produtos/apagar/'.$produto->id.'" title="Apagar" class="btn 
+                                echo '<a href="index.php/starwars/apagar/'.$starwar->id.'" title="Apagar" class="btn 
                                 btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+                                echo '<a href="index.php/starwars/info/'.$starwar->id.'" title="Info" class="btn 
+                                btn-primary"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a>';
                             echo'</td>';
                         echo'</tr>';
                     $contador++;
